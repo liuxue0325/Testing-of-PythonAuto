@@ -1,0 +1,49 @@
+Selenium安装方法
+    pip安装：pip install selenium
+    easy_install安装方法：easy_install selenium
+
+
+Selenium中选择元素对象
+    根据id和name定位对应的元素
+        id="nav"
+        find_element_by_id(id)
+        name="Trick"
+        find_element_by_name(name)
+    根据tag和class属性定位元素
+        class_name="dom_test"
+        find_element_by_class_name(class_name)
+        tag_name="p"
+        find_element_by_tag_name(tag_name)
+
+HTML代码块：
+<a href="https://jd.com" name="tj_news">京东</a>
+<a href="https://cd.jumei.com" name="tj_tieba">聚美</a>
+<a href="http://taobao.com" name="tj_zhidao">淘宝是一个神奇的网站哦</a>
+    根据link_text方式定位：
+        find_element_by_link_text("聚美")
+        find_element_by_link_text("京东")
+        find_element_by_link_text("淘宝是一个神奇的网站哦")
+    根据partial link text方式定位：
+        find_element_by_partial_link_text("淘宝")
+
+    根据Xpath定位元素：
+
+HTML代码块：
+<div class="simple_wrap" name=”simple_wrap_obj”>
+<form target="_self" action="http://baidu.com">
+<span id="my_container">
+<input id="input" type="text" type=”button”name=”firstBtn”>
+<input id="input2" type="button" name=”secondBtn”>
+<!-- 还有其他代码在此省略-->
+    根据自身id属性定位元素：
+        find_element_by_xpath("//input[@id='input2']")
+    根据上一级目录的id属性定位元素：
+        find_element_by_xpath("//span[@id='my_container']/input[1]")
+    根据上两级目录的class属性定位元素：
+        find_element_by_xpath("//div[@class='simple_wrap']/form/span/input")
+    根据上两级目录的name属性定位元素：
+        find_element_by_xpath("//div[@name='simple+wrap_obj']/form/span/input[1]")
+    使用绝对路径定位元素：
+        find_element_by_xpath("/html/body/div[1]/form/span/input[1]")
+    利用自身name属性定位：
+        find_element_by_xpath("//input[@name='secondBtn']")
